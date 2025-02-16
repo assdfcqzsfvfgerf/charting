@@ -14,8 +14,8 @@ def generate_signature(request_path, params=None):
     params_str = ''.join([f"{key}{params[key]}" for key in sorted(params.keys())]) if params else ''
     payload = f"{timestamp}{request_path}{params_str}"
     signature = hmac.new(
-        bytes(API_SECRET, 'utf-8'),
-        msg=bytes(payload, 'utf-8'),
+        API_SECRET.encode('utf-8'),
+        msg=payload.encode('utf-8'),
         digestmod=hashlib.sha256
     ).hexdigest()
     return timestamp, signature
