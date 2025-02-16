@@ -65,7 +65,7 @@ try:
     selected_pair = st.sidebar.selectbox("Select Trading Pair", trading_pairs)
     
     # Time range selection
-    time ranges = {
+    time_ranges = {
         '24 Hours': {'interval': '5m', 'days': 1},
         '7 Days': {'interval': '30m', 'days': 7},
         '30 Days': {'interval': '4h', 'days': 30},
